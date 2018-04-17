@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mad Libs</title>
+  <script src="script.js" async></script>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i,900,900i" type="text/css" media="all">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-content">
+    <header>
+      <h1>Welcome to Mad Libs</h1>
+    </header>
+    <p class="intro-text">This is a mad libs generator! We will prompt you for either a verb, noun or adjective, and then at the end of the process, a mad lib will appear below. To get started, simple press the start button underneath this text! Pressing the start button again
+      will reset the mad lib and prompt the questions again!</p>
+    <div id="button-wrapper">
+      <button id="start-button" type="button" name="button">Start</button>
+      <button id="clear-button" type="button" name="button">Clear</button>
+    </div>
+    <div id="answer-area">
+        <span id="question-span"></span>
+        <textarea name="answer-area" rows="8" cols="80"></textarea>
+        <button id="enter-button" type="button" name="button">Enter!</button>
+    </div>
+    <div id="mad-lib-generated">
+    </div>
+  </div>
+</body>

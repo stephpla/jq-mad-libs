@@ -1,0 +1,60 @@
+body {
+  background-color: #E8EAF6;
+  padding-top: 8px;
+  font-family: 'Source Sans Pro', 'Helvetica', Arial, sans-serif;
+  line-height: 1.5;
+
+}
+
+.page-content {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  height: calc(100vh - 6vw);
+
+}
+
+h1 {
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-bottom: 10px;
+  background-color: #3F51B5;
+  color: #F5F5F5;
+}
+
+.intro-text,
+#mad-lib-generated,
+#answer-area {
+  padding: 0 5%;
+}
+
+#mad-lib-generated {
+  font-size: 1.4em;
+}
+
+#button-wrapper {
+  text-align: center;
+  /* width: 50%; */
+
+}
+
+#question-span {
+  display: block;
+  font-size: 1.4em;
+}
+
+button {
+  padding: 10px 20px;
+  color: #E91E63;
+  background-color: white;
+  border: 4px solid #E91E63;
+  margin-left: 80px;
+  margin-right: 80px;
+  border-radius: 4px;
+
+}
+
+button:hover {
+  color: white;
+  background-color: #E91E63;
+}
