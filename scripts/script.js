@@ -7,56 +7,52 @@ let data = [
 ];
 let index = 0;
 let product = '';
-const startButton = document.getElementById('start-button');
-const clearButton = document.querySelector('#clear-button');
-const enterButton = document.getElementById('enter-button');
-const questionSpan = document.querySelector('#question-span');
-const textArea = document.querySelector('textarea');
-const madLib = document.querySelector('#mad-lib-generated');
-const answerArea = document.getElementById("answer-area");
 
-answerArea.style.visibility = "hidden";
-clearButton.style.visibility = "hidden";
+$('#answer-area').hide();
+$('#clear-button').hide();
+
+$('#start-button').click(function() {
+  launchMadLib();
+})
 
 function launchMadLib() {
-  startButton.style.visibility = "hidden";
+  $('#answer-area').show();
+  $('#start-button').hide();
   if (index === data.length) {
-    console.log(product);
     executeMadLib();
   } else {
-    questionSpan.innerHTML = question + data[index][0];
-    textArea.setAttribute('placeholder', data[index][1]);
-    answerArea.style.visibility = "visible";
-    console.log(product);
+    $('#question-span').html(question + data[index][0]);
+    $('textarea').attr('placeholder', data[index][1]);
   }
 }
 
+$('#enter-button').click(function(){
+  loopMadLib();
+});
+
 function loopMadLib() {
-    product += textArea.value + data[index][2];
-    index += 1;
-    textArea.value = '';
-    launchMadLib();
+  product += $('textarea').val() + data[index][2];
+  index += 1;
+  $('textarea').val('');
+  launchMadLib();
+  console.log(product);
 }
 
 function executeMadLib() {
-  var pTag = document.createElement("P");
-  var text = document.createTextNode(product);
+  const $madLib = $('<p>'+product+'</p>');
+  $('#mad-lib-generated').append($madLib);
 
-  pTag.appendChild(text);
-  madLib.appendChild(pTag);
+  $('#answer-area').hide();
+  $('#start-button').hide();
 
-  clearButton.style.visibility = "visible";
-  document.getElementById("answer-area").style.visibility = "hidden";
-  startButton.style.visibility = "visible";
+  $('#clear-button').show();
+  $('#start-button').show();
+
   product = '';
   index = 0;
 }
 
-function clearPage() {
-  madLib.innerHTML = '';
-  clearButton.style.visibility = "hidden";
-}
-
-startButton.addEventListener("click", launchMadLib, false);
-clearButton.addEventListener("click",clearPage, false);
-enterButton.addEventListener("click", loopMadLib, false);
+$('#clear-button').click(function(){
+  $('#mad-lib-generated').html('');
+  $('#clear-button').hide();
+});
